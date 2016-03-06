@@ -8,6 +8,8 @@ RUN npm install -g forever
 
 RUN mkdir /src
 
+# Copy only package.json to /tmp and install from there
+# so that, the next time when built, we do not have to download the entire modules
 ADD src/package.json /tmp
 
 RUN cd /tmp && npm install

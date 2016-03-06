@@ -1,0 +1,11 @@
+web:
+  build: .
+  command: /src/docker.sh
+  ports:
+    - "3000:3000"
+#  volumes:
+#    - .:/todo
+  links:
+    - db
+db:
+  image: mongo:3.0.2

@@ -1,1 +1,1 @@
-cd /src &&  node app.js > /var/log/my_app_log.log 2> /var/log/my_app_err.log
+cd /src &&  nodemon app.js > /var/log/my_app_log.log 2> /var/log/my_app_err.log

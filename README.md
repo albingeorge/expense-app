@@ -2,12 +2,10 @@
 
 ###How to run
 1. Clone the repo
-2. cd to src
-3. Execute:
+2. Execute:
 
     ```
-    npm install
-    npm install -g nodemon
-
+    docker build --rm=false -t expense .
+    docker run -d -p 3000:3000 expense
     ```
-
+3. Goto <docker container's IP>:3000 on browser

@@ -1,10 +1,8 @@
 web:
   build: .
-  command: /src/docker.sh
+  command: /usr/local/bin/docker.sh
   ports:
     - "3000:3000"
-#  volumes:
-#    - .:/todo
   links:
     - db
 db:

@@ -1,6 +1,6 @@
 FROM ubuntu:14.04.2
 
-RUN apt-get update && apt-get install -y nodejs build-essential npm
+RUN apt-get update && apt-get install -y nodejs build-essential npm mongodb-clients vim
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 

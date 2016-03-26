@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var handles = require('../handlers/expenses')
+var expenseHandles = require('../handlers/expense')
+var userHandles = require('../handlers/user')
 
-router.get("/", handles.list);
+router.get("/user/add", userHandles.add);
+router.get("/expense/add", expenseHandles.list);
+router.get("/expense/list", expenseHandles.list);
 
 module.exports = router;

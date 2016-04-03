@@ -5,6 +5,7 @@ var userHandles = require('../handlers/user')
 
 router.post("/user/add", userHandles.add);
 router.get("/user/list", userHandles.list);
+router.get("/user/:id", userHandles.get);
 router.get("/expense/add", expenseHandles.list);
 router.get("/expense/list", expenseHandles.list);
 

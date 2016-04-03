@@ -20,7 +20,6 @@ var add = function(req, res) {
 }
 
 var list = function(req, res) {
-    // var user = new User();
     User.find().exec(function(err, user) {
         if(err) {
             throw err;
@@ -30,7 +29,19 @@ var list = function(req, res) {
 
 }
 
+var get = function(req, res) {
+    console.log(req.params.id);
+    // res.status(200).send("Success");
+    User.findOne({_id: req.params.id}).exec(function(err, user) {
+        if(err) {
+            throw err;
+        }
+        res.status(200).send(user);
+    })
+}
+
 module.exports = {
     "add": add,
-    "list": list
+    "list": list,
+    "get": get
 }

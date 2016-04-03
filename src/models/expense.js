@@ -7,16 +7,17 @@ var ObjectId = Schema.ObjectId;
 var expenseSchema = new Schema({
     id: ObjectId,
     short_desc: { type: String, required: true, trim: true },
-    users: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
     amount: {
         type: Number,
         get: getPrice,
         set: setPrice,
         required: true
     },
+    split_between: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    paid_by: {type: User},
     desc: String,
     created_at: Date,
     updated_at: Date

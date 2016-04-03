@@ -8,7 +8,6 @@ var userSchema = new Schema({
     id: ObjectId,
     email: { type: String, required: true, trim: true },
     name: { type: String, required: true, trim: true },
-    desc: String,
     created_at: Date,
     updated_at: Date
 });
@@ -19,7 +18,6 @@ userSchema.pre('save', function(next){
   if ( !this.created_at ) {
     this.created_at = now;
   }
-  console.log("Going to next");
   next();
 });
 

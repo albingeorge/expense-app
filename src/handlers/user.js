@@ -6,7 +6,13 @@ var add = function(req, res) {
     var r = "Success";
     new_user.save(function(err) {
         if(err) {
-            throw err;
+            if(err.name == 'MongoError' && err.code == 11000) {
+                console.log("Duplicate user for " + req.body.name);
+                res.status(409).send("Email already exists");
+                return;
+            } else {
+                throw err;
+            }
         }
         console.log("User created for " + req.body.name);
         res.status(200).send("Success");

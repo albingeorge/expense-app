@@ -6,7 +6,7 @@ var ObjectId = Schema.ObjectId;
 // create a schema
 var userSchema = new Schema({
     id: ObjectId,
-    email: { type: String, required: true, trim: true },
+    email: { type: String, required: true, trim: true, unique: true},
     name: { type: String, required: true, trim: true },
     created_at: Date,
     updated_at: Date

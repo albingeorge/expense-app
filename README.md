@@ -27,28 +27,34 @@ docker ps --format "{{.Names}}"  | grep expenseapp_web
 
 
 1. ####Add user
-  
+
   API: `/api/user/add`
 
   Type: POST
-  
+
   Body:
-  
+
   ```
   {
     "name": "Albin",
     "email": "albin@gmail.com"
   }
   ```
-  
+
 2. ####Get users
 
   API: `/api/user/<id>`
- 
+
   Type: GET
 
 3. ####List users
 
   API: `/api/user/list`
-  
+
   Type: GET
+
+4. ###Add expense
+
+ API: `/api/expense/add`
+
+ Type: POST

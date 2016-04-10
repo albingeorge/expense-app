@@ -13,11 +13,11 @@ var expenseSchema = new Schema({
         set: setPrice,
         required: true
     },
+    paid_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     split_between: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
-    paid_by: {type: User},
     desc: String,
     created_at: Date,
     updated_at: Date

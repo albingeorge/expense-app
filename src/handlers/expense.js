@@ -21,10 +21,28 @@ var add = function(req, res) {
 }
 
 var list = function(req, res) {
-    res.status(200).send("success");
+    Expense.find().exec(function(err, expense) {
+        if(err) {
+            throw err;
+        }
+        res.status(200).send(expense);
+    });
+}
+
+var update = function(req, res) {
+    var query = req.body.query;
+    var upsert_data = req.body.update_data;
+    // var query = {'username':req.user.username};
+    // req.newData.username = req.user.username;
+    Expense.findOneAndUpdate(query, upsert_data, {upsert:true}, function(err, doc){
+        if (err) return res.send(500, { error: err });
+        res.status(200).send("Success");
+    });
+
 }
 
 module.exports = {
     "add": add,
-    "list": list
+    "list": list,
+    "update": update
 }

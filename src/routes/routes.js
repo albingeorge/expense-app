@@ -8,5 +8,6 @@ router.get("/user/list", userHandles.list);
 router.get("/user/:id", userHandles.get);
 router.post("/expense/add", expenseHandles.add);
 router.get("/expense/list", expenseHandles.list);
+router.post("/expense/update", expenseHandles.update);
 
 module.exports = router;

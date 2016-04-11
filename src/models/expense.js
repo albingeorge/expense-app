@@ -24,13 +24,16 @@ var expenseSchema = new Schema({
 });
 
 expenseSchema.pre('save', function(next){
-  now = new Date();
-  this.updated_at = now;
-  if ( !this.created_at ) {
-    this.created_at = now;
-  }
-  next();
+    now = new Date();
+    this.updated_at = now;
+    if ( !this.created_at ) {
+        this.created_at = now;
+    }
+    next();
 });
+
+expenseSchema.set('toObject', { getters: true });
+expenseSchema.set('toJSON', { getters: true });
 
 function getPrice(num){
     return (num/100).toFixed(2);

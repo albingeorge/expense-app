@@ -21,7 +21,12 @@ var add = function(req, res) {
 }
 
 var list = function(req, res) {
-    res.status(200).send("success");
+    Expense.find().exec(function(err, expense) {
+        if(err) {
+            throw err;
+        }
+        res.status(200).send(expense);
+    });
 }
 
 module.exports = {

@@ -4,32 +4,37 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 // create a schema
-var expenseSchema = new Schema({
-    id: ObjectId,
-    short_desc: { type: String, required: true, trim: true },
-    amount: {
-        type: Number,
-        get: getPrice,
-        set: setPrice,
-        required: true
+var expenseSchema = new Schema(
+    {
+        id: ObjectId,
+        short_desc: { type: String, required: true, trim: true },
+        amount: {
+                type: Number,
+                get: getPrice,
+                set: setPrice,
+                required: true
+        },
+        paid_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+        split_between: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+        }],
+        desc: String,
+        created_at: Date,
+        updated_at: Date
     },
-    paid_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
-    split_between: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-    desc: String,
-    created_at: Date,
-    updated_at: Date
-});
+    {
+        toJSON : {getters: true}
+    }
+);
 
 expenseSchema.pre('save', function(next){
-  now = new Date();
-  this.updated_at = now;
-  if ( !this.created_at ) {
-    this.created_at = now;
-  }
-  next();
+    now = new Date();
+    this.updated_at = now;
+    if ( !this.created_at ) {
+        this.created_at = now;
+    }
+    next();
 });
 
 function getPrice(num){

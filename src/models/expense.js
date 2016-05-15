@@ -37,6 +37,9 @@ expenseSchema.pre('save', function(next){
     next();
 });
 
+expenseSchema.set('toObject', { getters: true });
+expenseSchema.set('toJSON', { getters: true });
+
 function getPrice(num){
     return (num/100).toFixed(2);
 }

@@ -25,8 +25,7 @@ var list = function(req, res) {
             throw err;
         }
         res.status(200).send(user);
-    })
-
+    });
 }
 
 var get = function(req, res) {

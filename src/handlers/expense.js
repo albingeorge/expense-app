@@ -29,7 +29,19 @@ var list = function(req, res) {
     });
 }
 
+var update = function(req, res) {
+    var query = req.body.query;
+    var upsert_data = req.body.update_data;
+    // var query = {'username':req.user.username};
+    // req.newData.username = req.user.username;
+    Expense.findOneAndUpdate(query, upsert_data, {upsert:true}, function(err, doc){
+        if (err) return res.send(500, { error: err });
+        res.status(200).send("Success");
+    });
+}
+
 module.exports = {
     "add": add,
-    "list": list
+    "list": list,
+    "update": update
 }

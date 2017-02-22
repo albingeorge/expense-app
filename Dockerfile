@@ -1,10 +1,15 @@
 FROM ubuntu:14.04.2
 
-RUN apt-get update && apt-get install -y nodejs build-essential npm mongodb-clients vim
+RUN groupadd -r node && useradd -r -g node node
+
+
+RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && apt-get update
+RUN apt-get install -y nodejs build-essential npm mongodb-clients vim
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN npm install -g nodemon
+RUN npm install pm2@latest -g
 
 RUN mkdir /src
 

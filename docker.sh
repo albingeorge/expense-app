@@ -1,3 +1,4 @@
 cd /src
 echo "At entrypoint"
-node app.js
+# pm2 start app.js
+pm2-docker app.js

@@ -5,6 +5,9 @@ web:
     - "3000:3000"
   links:
     - db
+  volumes:
+    - ./src:/src
+
 db:
   image: mongo:3.0.2
   env_file:

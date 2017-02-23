@@ -17,9 +17,9 @@ RUN mkdir /src
 # so that, the next time when built, we do not have to download the entire modules
 ADD src/package.json /tmp
 
-RUN cd /tmp && npm install
+#RUN cd /tmp && npm install
 
-RUN cp -a /tmp/node_modules /src/
+#RUN cp -a /tmp/node_modules /src/
 
 ADD src /src/
 

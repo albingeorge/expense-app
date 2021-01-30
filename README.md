@@ -23,10 +23,10 @@ docker ps --format "{{.Names}}"  | grep expenseapp_web
 ```
 
 
-### APIs
+## APIs
 
 
-1. #### Add user
+#### Add user
 
   API: `/api/user/add`
 
@@ -41,19 +41,19 @@ docker ps --format "{{.Names}}"  | grep expenseapp_web
   }
   ```
 
-2. #### Get users
+#### Get users
 
   API: `/api/user/<id>`
 
   Type: GET
 
-3. #### List users
+#### List users
 
   API: `/api/user/list`
 
   Type: GET
 
-4. ### Add expense
+### Add expense
 
  API: `/api/expense/add`
 

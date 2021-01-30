@@ -1,6 +1,6 @@
 ## A basic expense tracker app
 
-### How to run
+### Setup
 1. Clone the repo
 2. Execute:
 
